@@ -8,127 +8,70 @@ from .models import Categories
 
 
 class UserSerializer(serializers.Serializer):
-      class Meta:
+    class Meta:
         model = User
         fields = ('id', 'username', 'email')
 
+
 class RegisterSerializer(serializers.ModelSerializer):
-    
     class Meta:
         model = User
         fields = ['id', 'username', 'email', 'password']
-        
+
         password = serializers.CharField(write_only=True)
-        
-        
+
     def create(self, validated_data):
         user = User.objects.create_user(validated_data['username'], validated_data['email'], validated_data['password'])
 
         return user
 
+
 class ListcatSerializer(serializers.ModelSerializer):
     class Meta:
         model = Categories
-        fields = ['title','image']
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        fields = ['title', 'image']
 
 # extra_kwargs = {'password': {'write_only': True}}
-        # extra_kwargs = {
-        #     "password": {"wirite_only":True},
-        #     "email":{"required":True,
-        #     "allow_blank":False,
-        #     "validator":[validators.UniqueValidator(User.objects.all(),"user with that Email already exists"
-        #    ) ]
-        #     }
-        # }
-        
+# extra_kwargs = {
+#     "password": {"wirite_only":True},
+#     "email":{"required":True,
+#     "allow_blank":False,
+#     "validator":[validators.UniqueValidator(User.objects.all(),"user with that Email already exists"
+#    ) ]
+#     }
+# }
 
 
+# def create(self, validated_data):
+#     username = validated_data["username"]
+#     password = validated_data["password"]
+#     new_user = User(username=username)
+#     new_user.set_password(password)
+#     new_user.save()
+#     return validated_data
 
+# def create(self, validated_data):
+#  user = User.objects.create_user(**validated_data)
+# #  user.set_password(validated_data['password'])
+#  user.save()
 
+#  return user
+# def create(self, validated_data):
+#     username=validated_data.get('username')
+#     password=validated_data.get('password')
+#     first_name=validated_data.get('first_name')
+#     last_name=validated_data.get('last_name')
+#     email= validated_data.get('email')
 
+#     user = User.objects.create(
+#         username=username,
+#         password=password,
+#         first_name=first_name,
+#         last_name=last_name
+#     )
 
+#     return user
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    # def create(self, validated_data):
-    #     username = validated_data["username"]
-    #     password = validated_data["password"]
-    #     new_user = User(username=username)
-    #     new_user.set_password(password)
-    #     new_user.save()
-    #     return validated_data
-
-        # def create(self, validated_data):
-        #  user = User.objects.create_user(**validated_data)
-        # #  user.set_password(validated_data['password'])
-        #  user.save()      
-
-        #  return user
-    # def create(self, validated_data):
-    #     username=validated_data.get('username')
-    #     password=validated_data.get('password')
-    #     first_name=validated_data.get('first_name')
-    #     last_name=validated_data.get('last_name')
-    #     email= validated_data.get('email')
-       
-    #     user = User.objects.create(
-    #         username=username,
-    #         password=password,
-    #         first_name=first_name,
-    #         last_name=last_name
-    #     )
-
-    #     return user
-
-        
-
-        
 
 # class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
 #     @classmethod
@@ -164,6 +107,3 @@ class ListcatSerializer(serializers.ModelSerializer):
 
 #         data["token"] = token
 #         return data
-
-
-

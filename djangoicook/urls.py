@@ -26,7 +26,7 @@ urlpatterns = [
     path('api/register/', views.Register_api.as_view(), name='register'),
     path('api/login/', views.Login_api, name='login'),
     path('api-auth/', include('rest_framework.urls')),
-    path('api/categories/', views.Catapilist.as_view, name='categories'),
+    path('api/categories/', views.Catapilist.as_view(), name='categories'),
     
     path('api/password_reset/', include('django_rest_passwordreset.urls', namespace='password_reset')),
 ]
