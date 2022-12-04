@@ -17,7 +17,7 @@ from rest_framework import generics, permissions
 # Create your views here.
 from rest_framework.generics import CreateAPIView
 
-from .models import Categories
+from .models import Categories, Recipes
 from .serializers import RegisterSerializer, UserSerializer, ListcatSerializer
 from django.contrib.auth import get_user_model
 
@@ -62,10 +62,20 @@ class Catapilist(ListAPIView):
     serializer_class = serializers.ListcatSerializer
 
 
-class Catcreate(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Categories.objects.all()
-    serializer_class = serializers.ListcatSerializer
+class Categoriescreate(CreateAPIView):
+     serializer_class =  ListcatSerializer
+     
+    
 
+class Recipesapilist(ListAPIView):
+    queryset = Recipes.objects.all()
+    serializer_class = serializers.RecipesSerializer
+
+class RecipesCreateView(CreateAPIView):
+    serializer_class = serializers.RecipesSerializer
+    def perform_create(self, serializer):
+        serializer.save()
+    
 
 class UserLogoutAPIView(APIView):
     def post(self, request):
