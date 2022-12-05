@@ -44,8 +44,8 @@ INSTALLED_APPS = [
     'djicook',
     'rest_framework',
     "rest_framework.authtoken",
-    'knox',
-    'django_rest_passwordreset',
+   
+    
     
     
 ]

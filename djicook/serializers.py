@@ -32,7 +32,7 @@ class RegisterSerializer(serializers.ModelSerializer):
         model = User
         fields = ['id','username', 'password']
 
-        def create(self, validated_data):
+    def create(self, validated_data):
          username = validated_data["username"]
          password = validated_data["password"]
          new_user = User(username=username)

@@ -10,7 +10,7 @@ from rest_framework.authtoken.models import Token
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework.authtoken.serializers import AuthTokenSerializer
-from knox.auth import AuthToken
+
 from rest_framework.generics import ListAPIView, CreateAPIView
 from rest_framework import status
 from rest_framework import generics, permissions
@@ -98,11 +98,11 @@ class RecipesCreateView(CreateAPIView):
         serializer.save()
     
 
-class UserLogoutAPIView(APIView):
-    def post(self, request):
-        if request.user.is_authenticated:
-            print(request.auth)
-            request.auth.delete()
-            # print(request.user.auth_token)
-            # request.user.auth_token.delete()
-        return Response(status=status.HTTP_200_OK)
+# class UserLogoutAPIView(APIView):
+#     def post(self, request):
+#         if request.user.is_authenticated:
+#             print(request.auth)
+#             request.auth.delete()
+#             # print(request.user.auth_token)
+#             # request.user.auth_token.delete()
+#         return Response(status=status.HTTP_200_OK)

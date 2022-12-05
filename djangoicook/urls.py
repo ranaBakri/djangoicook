@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
-from knox import views as knox_views
+
 
 
 urlpatterns = [
@@ -30,8 +30,8 @@ urlpatterns = [
     path('api/createcategories/', views.Categoriescreate.as_view(), name='createcategories'),
     path('api/createrecipes/',views.RecipesCreateView.as_view(), name='createrecipes'),
     path('api/recipes/',views.Recipesapilist.as_view(), name='recipes'),
-     path('api/logout/', knox_views.LogoutView.as_view(), name='logout'),
-    path('api/password_reset/', include('django_rest_passwordreset.urls', namespace='password_reset')),
+     
+    
     path('api/login/', views.MyTokenObtainPairView.as_view(), name='token_obtain'),
 ]
 
