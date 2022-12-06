@@ -24,11 +24,15 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/register/', views.Register_api.as_view(), name='register'),
-    path('api/login/', views.Login_api, name='login'),
+    # path('api/login/', views.UserLogoutAPIView.as_view, name='login'),
     path('api-auth/', include('rest_framework.urls')),
-    path('api/categories/', views.Catapilist.as_view, name='categories'),
+    path('api/categories/', views.Catapilist.as_view(), name='categories'),
+    path('api/createcategories/', views.Categoriescreate.as_view(), name='createcategories'),
+    path('api/createrecipes/',views.RecipesCreateView.as_view(), name='createrecipes'),
+    path('api/recipes/',views.Recipesapilist.as_view(), name='recipes'),
+     
     
-    path('api/password_reset/', include('django_rest_passwordreset.urls', namespace='password_reset')),
+    path('api/login/', views.MyTokenObtainPairView.as_view(), name='token_obtain'),
 ]
 
 if settings.DEBUG:

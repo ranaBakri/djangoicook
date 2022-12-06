@@ -44,8 +44,8 @@ INSTALLED_APPS = [
     'djicook',
     'rest_framework',
     "rest_framework.authtoken",
-    'knox',
-    'django_rest_passwordreset',
+   
+    
     
     
 ]
@@ -111,7 +111,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
-        "rest_framework_simplejwt.authentication.JWTAuthentication",'knox.auth.TokenAuthentication',
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
     )
 }
 
@@ -140,8 +140,16 @@ USE_TZ = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATIC_URL = "static/"
-STATIC_ROOT = BASE_DIR / "static"
 
-MEDIA_URL = "media/"
-MEDIA_ROOT = BASE_DIR / "media"
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
+
+# STATIC_URL = "static/"
+# STATIC_ROOT = BASE_DIR / "static"
+#
+# MEDIA_URL = "media/"
+# MEDIA_ROOT = BASE_DIR / "media"
