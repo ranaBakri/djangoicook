@@ -102,3 +102,5 @@ class RecipeDelete(DestroyAPIView):
     lookup_field = 'id'
     lookup_url_kwarg = 'pk'
     # permission_classes = [IsAuthenticated]   
+
+    # no Comments
