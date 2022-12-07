@@ -43,7 +43,7 @@ class Recipes(models.Model):
     instructions=models.TextField()
 
     def __str__(self):
-        return f'{self.title, self.user}'
+        return f'{self.title, self.user.username}'
 
 
 # class Ingredients_Recipes(models.Model):

@@ -27,10 +27,12 @@ urlpatterns = [
     # path('api/login/', views.UserLogoutAPIView.as_view, name='login'),
     path('api-auth/', include('rest_framework.urls')),
     path('api/categories/', views.Catapilist.as_view(), name='categories'),
-    path('api/createcategories/', views.Categoriescreate.as_view(), name='createcategories'),
-    path('api/createrecipes/',views.RecipesCreateView.as_view(), name='createrecipes'),
+    path('api/addcategories/', views.Categoriescreate.as_view(), name='addcategories'),
+    path('api/addrecipes/',views.RecipesCreateView.as_view(), name='addrecipes'),
     path('api/recipes/',views.Recipesapilist.as_view(), name='recipes'),
-     
+    path('api/myrecipes/',views.RecipesOwner.as_view(), name='myrecipes'),
+    path('api/updaterecipes/<int:pk>/',views.RecipesUpdate.as_view(), name='updaterecipes'),
+    path('api/deleterecipes/<int:pk>/',views.RecipeDelete.as_view(), name='Deleterecipes'),
     
     path('api/login/', views.MyTokenObtainPairView.as_view(), name='token_obtain'),
 ]
