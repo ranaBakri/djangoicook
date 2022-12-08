@@ -15,7 +15,7 @@ from rest_framework.generics import ListAPIView, CreateAPIView,RetrieveUpdateAPI
 from rest_framework import status
 from rest_framework.permissions import BasePermission
 from .models import Categories, Recipes
-from .serializers import MyTokenObtainPairSerializer, RegisterSerializer, UserLoginSerializer, UserSerializer, ListcatSerializer,CreateRecipesSerializer
+from .serializers import MyTokenObtainPairSerializer, RegisterSerializer, UserLoginSerializer, UserSerializer, ListcatSerializer,CreateRecipesSerializer,createcatSerializer
 from django.contrib.auth import get_user_model
 from . import serializers
 
@@ -64,7 +64,7 @@ class Catapilist(ListAPIView):
     
 
 class Categoriescreate(CreateAPIView):
-     serializer_class =  ListcatSerializer
+     serializer_class =  createcatSerializer
     #  permission_classes=[IsAuthenticated]
      
     

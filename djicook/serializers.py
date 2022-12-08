@@ -53,13 +53,17 @@ class ListcatSerializer(serializers.ModelSerializer):
     class Meta:
         model = Categories
         fields = ['title']
+class createcatSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Categories
+        fields = ['title','image']
 
 class RecipesSerializer(serializers.ModelSerializer):
-    user = serializers.PrimaryKeyRelatedField(read_only=True)
+    user = serializers.CharField(source='user.username',read_only=True)
     class Meta:
         model = Recipes
-        fields = ['id','title', 'user','category','Description','ingredients',
-    'instructions']
+        fields = ['id','title', 'user','category','description','ingredients',
+    'instructions','image']
 
 class UserLoginSerializer(serializers.Serializer):
     username = serializers.CharField()
@@ -87,6 +91,6 @@ class CreateRecipesSerializer(serializers.ModelSerializer):
     class Meta:
         user = serializers.PrimaryKeyRelatedField(read_only=True)
         model = Recipes
-        fields = ['title', 'user','category','Description','ingredients',
+        fields = ['title', 'user','category','description','ingredients','image'
     'instructions']
 

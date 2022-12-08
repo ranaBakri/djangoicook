@@ -5,7 +5,9 @@ from django.contrib.auth.models import User
 
 class Categories(models.Model):
     title = models.TextField(max_length=250)
-    # image = models.ImageField(upload_to="images", blank=True)
+    image = models.ImageField(upload_to="images", blank=True)
+ 
+
 
     def __str__(self):
         return (self.title)
@@ -33,7 +35,7 @@ class Categories(models.Model):
 class Recipes(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="recipeowner")
     title = models.TextField()
-    Description = models.TextField()
+    description = models.TextField()
     image = models.ImageField(help_text='Product Image', upload_to='images', blank=True)
     # serves = models.IntegerField()
     # cooktime = models.TextField()
